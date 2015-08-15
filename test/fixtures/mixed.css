@@ -1,4 +1,4 @@
 .foo,
-input::placeholder {
-  color: black;
+input[type="range"]::thumb {
+  background: blue;
 }

@@ -1,52 +1,14 @@
-::-webkit-input-placeholder {
-
-    color: black;
-
-    opacity: 0.8
-}
-
-:-moz-placeholder {
-
-    color: black !important;
-
-    opacity: 0.8
-}
-
-::-moz-placeholder {
-
-    color: black !important;
-
-    opacity: 0.8
-}
-
-:-ms-input-placeholder {
-
-    color: black !important;
-
-    opacity: 0.8
-}
-
 ::-webkit-runnable-track {
-
     -webkit-appearance: none !important;
-
     background: #9d9d9d;
-
     height: 3px
 }
-
 ::-moz-range-track {
-
     -moz-appearance: none !important;
-
     background: #9d9d9d;
-
     height: 3px
 }
-
 ::-ms-track {
-
     background: #9d9d9d;
-
     height: 3px
 }

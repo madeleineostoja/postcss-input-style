@@ -5,19 +5,11 @@ var postcss = require('postcss');
 
 // Map new selectors to outputs
 var selectors = {
-  placeholder: '::placeholder',
   rangeTrack: '::track',
   rangeThumb: '::thumb'
 };
 
 var pseudos = {
-  placeholder: [
-    '::-webkit-input-placeholder',
-    ':-moz-placeholder',
-    '::-moz-placeholder',
-    ':-ms-input-placeholder'
-  ],
-
   rangeTrack: [
     '::-webkit-runnable-track',
     '::-moz-range-track',
@@ -37,7 +29,7 @@ var pseudos = {
  * @return {Boolean}         whether it contains pseudo
  */
 var containsPseudo = function(selector) {
-  return selector.match(/::placeholder|::track|::thumb/);
+  return selector.match(/::track|::thumb/);
 };
 
 /**
@@ -46,26 +38,7 @@ var containsPseudo = function(selector) {
  * @return {Boolean}         whether it is free from pseudo
  */
 var doesntContainPseudo = function(selector) {
-  return selector.match(/^((?!(::placeholder|::thumb|::track)).)*$/);
-};
-
-/**
- * Extra processing for new placeholder rules
- * @param  {Object} rule CSS rule to process
- * @return undefined
- */
-var processPlaceholders = function(rule) {
-
-  if (!rule.selector.match(/:-moz-placeholder|::-moz-placeholder|:-ms-input-placeholder/)){
-    return;
-  }
-
-  rule.eachDecl('color', function(decl){
-    if (!decl.important) {
-      decl.value = decl.value + ' !important';
-    }
-  });
-
+  return selector.match(/^((?!(::thumb|::track)).)*$/);
 };
 
 /**
@@ -133,7 +106,6 @@ var ruleHandler = function(rule) {
       newRule.selector = newSelector;
 
       // Do extra processing on the new rules
-      processPlaceholders(newRule);
       processTracks(newRule);
       processThumbs(newRule);
 

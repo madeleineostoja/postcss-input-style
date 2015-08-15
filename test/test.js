@@ -28,10 +28,6 @@ var test = function (fixture, opts, done) {
 
 describe('postcss-input-style', function () {
 
-  it('creates placeholder selectors', function (done) {
-   test('placeholder', {}, done);
-  });
-
   it('creates range track selectors', function (done) {
    test('range-track', {}, done);
   });

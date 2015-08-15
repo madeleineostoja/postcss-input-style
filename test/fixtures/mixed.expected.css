@@ -1,15 +1,14 @@
-input::-webkit-input-placeholder {
-  color: black;
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none !important;
+  background: blue;
 }
-input:-moz-placeholder {
-  color: black !important;
+input[type="range"]::-moz-range-thumb {
+  -moz-appearance: none !important;
+  background: blue;
 }
-input::-moz-placeholder {
-  color: black !important;
-}
-input:-ms-input-placeholder {
-  color: black !important;
+input[type="range"]::-ms-thumb {
+  background: blue;
 }
 .foo {
-  color: black;
+  background: blue;
 }
