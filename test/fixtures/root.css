@@ -1,0 +1,9 @@
+::placeholder {
+  color: black;
+  opacity: 0.8;
+}
+
+::track {
+  background: #9d9d9d;
+  height: 3px;
+}

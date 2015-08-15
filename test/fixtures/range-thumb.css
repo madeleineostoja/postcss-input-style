@@ -1,0 +1,6 @@
+input[type="range"]::thumb {
+  background: #4286be;
+  width: 16px;
+  height: 8px;
+  border-radius: 999px;
+}

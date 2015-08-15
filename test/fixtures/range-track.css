@@ -1,0 +1,4 @@
+input[type="range"]::track {
+  background: #9d9d9d;
+  height: 3px;
+}

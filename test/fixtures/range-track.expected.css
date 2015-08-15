@@ -1,0 +1,14 @@
+input[type="range"]::-webkit-runnable-track {
+    -webkit-appearance: none !important;
+    background: #9d9d9d;
+    height: 3px
+}
+input[type="range"]::-moz-range-track {
+    -moz-appearance: none !important;
+    background: #9d9d9d;
+    height: 3px
+}
+input[type="range"]::-ms-track {
+    background: #9d9d9d;
+    height: 3px
+}
