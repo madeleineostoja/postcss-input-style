@@ -1,40 +1,9 @@
 # postcss-input-style
 [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url]
 
-[PostCSS] plugin that adds new pseudo-elements to inputs for easy cross-browser styling of their Shadow-DOM elements.
+[PostCSS] plugin that adds new pseudo-elements to inputs for easy cross-browser styling of their inner elements. Currently the only input supported is Range, more will be added as more vendor-specific pseudo selectors are made available.
 
 Note that the output selectors generated (below) are not grouped because if a browser finds a single selector it doesn't understand in a group, the whole group is ignored (see [Selectors Level 3][selectors])
-
-#### Placeholders
-Input
-```css
-input::placeholder {
-  color: black;
-  opacity: 0.8;
-}
-```
-Output
-```css
-input::-webkit-input-placeholder {
-  color: black;
-  opacity: 0.8;
-}
-
-input:-moz-placeholder {
-  color: black !important;
-  opacity: 0.8;
-}
-
-input::-moz-placeholder {
-  color: black !important;
-  opacity: 0.8;
-}
-
-input:-ms-input-placeholder {
-  color: black !important;
-  opacity: 0.8;
-}
-```
 
 #### Range elements
 Input

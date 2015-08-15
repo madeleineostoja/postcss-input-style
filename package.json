@@ -1,7 +1,7 @@
 {
   "name": "postcss-input-style",
   "version": "0.2.0",
-  "description": "Adds new pseudo-elements to inputs for easy cross-browser styling of their Shadow-DOM elements",
+  "description": "Adds new pseudo-elements to inputs for easy cross-browser styling of their inner elements",
   "keywords": [
     "postcss",
     "css",
