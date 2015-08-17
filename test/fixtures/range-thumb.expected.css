@@ -1,20 +1,23 @@
 input[type="range"]::-webkit-slider-thumb {
-    -webkit-appearance: none !important;
+    -webkit-appearance: none;
     background: #4286be;
     width: 16px;
     height: 8px;
-    border-radius: 999px
+    border-radius: 999px;
 }
 input[type="range"]::-moz-range-thumb {
-    -moz-appearance: none !important;
+    -moz-appearance: none;
     background: #4286be;
     width: 16px;
     height: 8px;
-    border-radius: 999px
+    border-radius: 999px;
 }
 input[type="range"]::-ms-thumb {
     background: #4286be;
     width: 16px;
     height: 8px;
-    border-radius: 999px
+    border-radius: 999px;
+}
+input[type="range"] {
+    -webkit-appearance: none;
 }

@@ -48,12 +48,12 @@ var doesntContainPseudo = function(selector) {
  */
 var processTracks = function(rule) {
 
-  if (rule.selector.indexOf('::-webkit-runnable-track') > -1) {
-    rule.prepend({ prop: '-webkit-appearance', value: 'none !important' });
+  if (rule.selector.indexOf('::-webkit-slider-runnable-track') > -1) {
+    rule.prepend({ prop: '-webkit-appearance', value: 'none' });
   }
 
   if (rule.selector.indexOf('::-moz-range-track') > -1) {
-    rule.prepend({ prop: '-moz-appearance', value: 'none !important' });
+    rule.prepend({ prop: '-moz-appearance', value: 'none' });
   }
 
 };
@@ -66,11 +66,11 @@ var processTracks = function(rule) {
 var processThumbs = function(rule) {
 
   if (rule.selector.indexOf('::-webkit-slider-thumb') > -1) {
-    rule.prepend({ prop: '-webkit-appearance', value: 'none !important' });
+    rule.prepend({ prop: '-webkit-appearance', value: 'none' });
   }
 
   if (rule.selector.indexOf('::-moz-range-thumb') > -1) {
-    rule.prepend({ prop: '-moz-appearance', value: 'none !important' });
+    rule.prepend({ prop: '-moz-appearance', value: 'none' });
   }
 
 };
@@ -111,17 +111,35 @@ var ruleHandler = function(rule) {
 
     });
 
-    // If the rule only contained our elements remove it, otherwise remove our selectors
+    // If the rule only contained our elements clean it, otherwise clone and split selectors
+    // Then insert webkit appearance none
     if (rule.selectors.every(containsPseudo)) {
-      rule.removeSelf();
+
+      rule.selector = rule.selector.replace(/::thumb|::track/, '');
+
+      if (rule.selector === '') {
+        rule.removeSelf();
+        return;
+      }
+
+      rule.removeAll();
+      rule.append({ prop: '-webkit-appearance', value: 'none' });
+
     } else {
+
+      var cleanRule = rule.cloneBefore();
+      cleanRule.selector = rule.selectors.filter(containsPseudo).join(',\n');
+      cleanRule.selector = cleanRule.selector.replace(/::thumb|::track/, '');
+      cleanRule.removeAll();
+      cleanRule.append({ prop: '-webkit-appearance', value: 'none' });
+
       rule.selector = rule.selectors.filter(doesntContainPseudo).join(',\n');
+
     }
 
   });
 
 };
-
 
 module.exports = postcss.plugin('postcss-input-style', function () {
   return function (css) {

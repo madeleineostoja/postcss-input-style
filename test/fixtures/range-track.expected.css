@@ -1,14 +1,17 @@
-input[type="range"]::-webkit-runnable-track {
-    -webkit-appearance: none !important;
+input[type="range"]::-webkit-slider-runnable-track {
+    -webkit-appearance: none;
     background: #9d9d9d;
-    height: 3px
+    height: 3px;
 }
 input[type="range"]::-moz-range-track {
-    -moz-appearance: none !important;
+    -moz-appearance: none;
     background: #9d9d9d;
-    height: 3px
+    height: 3px;
 }
 input[type="range"]::-ms-track {
     background: #9d9d9d;
-    height: 3px
+    height: 3px;
+}
+input[type="range"] {
+    -webkit-appearance: none;
 }

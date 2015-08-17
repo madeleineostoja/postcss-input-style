@@ -1,13 +1,16 @@
 input[type="range"]::-webkit-slider-thumb {
-  -webkit-appearance: none !important;
+  -webkit-appearance: none;
   background: blue;
 }
 input[type="range"]::-moz-range-thumb {
-  -moz-appearance: none !important;
+  -moz-appearance: none;
   background: blue;
 }
 input[type="range"]::-ms-thumb {
   background: blue;
+}
+input[type="range"] {
+  -webkit-appearance: none;
 }
 .foo {
   background: blue;
