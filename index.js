@@ -11,7 +11,7 @@ var selectors = {
 
 var pseudos = {
   rangeTrack: [
-    '::-webkit-runnable-track',
+    '::-webkit-slider-runnable-track',
     '::-moz-range-track',
     '::-ms-track'
   ],
