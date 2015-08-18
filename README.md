@@ -61,9 +61,13 @@ input[type="range"]::-ms-thumb {
 input[type="range"] {
   -webkit-appearance: none;
 }
+
+input[type=range]::-moz-focus-outer {
+    border: 0;
+}
 ```
 
-`-[vendor]-appearance: none;` is added so your custom styles apply. On webkit (Chrome, etc.) this means you must style *both* `::track` and `::thumb`, since the appearance must be set on the root element as well.
+`-[vendor]-appearance: none;` is added so your custom styles apply. On webkit (Chrome, etc.) this means you must style *both* `::track` and `::thumb`, since the appearance must be set on the root element as well. The additional `::-moz-focus-outer` rule removes the nasty dotted focus outline on firefox.
 ---
 
 ### Usage
