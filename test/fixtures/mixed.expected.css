@@ -12,6 +12,9 @@ input[type="range"]::-ms-thumb {
 input[type="range"] {
   -webkit-appearance: none;
 }
+input[type="range"]::-moz-focus-outer {
+  border: 0;
+}
 .foo {
   background: blue;
 }

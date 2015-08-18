@@ -111,30 +111,20 @@ var ruleHandler = function(rule) {
 
     });
 
-    // If the rule only contained our elements clean it, otherwise clone and split selectors
-    // Then insert webkit appearance none
+    // Add necessary additional base rules
+    var webkitRule = rule.cloneBefore();
+    webkitRule.selector = 'input[type="range"]';
+    webkitRule.removeAll().append({ prop: '-webkit-appearance', value: 'none' });
+
+    var mozRule = rule.cloneBefore();
+    mozRule.selector = 'input[type="range"]::-moz-focus-outer';
+    mozRule.removeAll().append({ prop: 'border', value: '0' });
+
+    // If the rule only contained our elements remove it, else clean it
     if (rule.selectors.every(containsPseudo)) {
-
-      rule.selector = rule.selector.replace(/::thumb|::track/, '');
-
-      if (rule.selector === '') {
-        rule.removeSelf();
-        return;
-      }
-
-      rule.removeAll();
-      rule.append({ prop: '-webkit-appearance', value: 'none' });
-
+      rule.removeSelf();
     } else {
-
-      var cleanRule = rule.cloneBefore();
-      cleanRule.selector = rule.selectors.filter(containsPseudo).join(',\n');
-      cleanRule.selector = cleanRule.selector.replace(/::thumb|::track/, '');
-      cleanRule.removeAll();
-      cleanRule.append({ prop: '-webkit-appearance', value: 'none' });
-
       rule.selector = rule.selectors.filter(doesntContainPseudo).join(',\n');
-
     }
 
   });
