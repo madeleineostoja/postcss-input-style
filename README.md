@@ -1,9 +1,11 @@
-# postcss-input-style
+# PostCSS Input Style
 [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url]
 
-[PostCSS] plugin that adds new pseudo-elements to inputs for easy cross-browser styling of their inner elements. Currently the only input supported is Range, more will be added as more vendor-specific pseudo selectors are made available.
+[PostCSS][PostCSS] plugin that adds new pseudo-elements to inputs for easy cross-browser styling of their inner elements. Currently the only input supported is Range, more will be added as more vendor-specific pseudo selectors are made available.
 
-Note that the output selectors generated (below) are not grouped because if a browser finds a single selector it doesn't understand in a group, the whole group is ignored (see [Selectors Level 3][selectors])
+Note that the output selectors generated (below) are not grouped because if a browser finds a single selector it doesn't understand in a group, the whole group is ignored (see [Selectors Level 3][selectors]).
+
+Part of [Rucksack - CSS Superpowers](http://simplaio.github.io/rucksack).
 
 #### Range elements
 Input
@@ -76,7 +78,7 @@ input[type=range]::-moz-focus-outer {
 postcss([ require('postcss-input-style') ])
 ```
 
-See [PostCSS] docs for examples for your environment.
+See [PostCSS][PostCSS] docs for examples for your environment.
 
 --
 
