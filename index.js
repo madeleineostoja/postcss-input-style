@@ -122,7 +122,7 @@ var ruleHandler = function(rule) {
 
     // If the rule only contained our elements remove it, else clean it
     if (rule.selectors.every(containsPseudo)) {
-      rule.removeSelf();
+      rule.remove();
     } else {
       rule.selector = rule.selectors.filter(doesntContainPseudo).join(',\n');
     }
@@ -134,7 +134,7 @@ var ruleHandler = function(rule) {
 module.exports = postcss.plugin('postcss-input-style', function () {
   return function (css) {
 
-    css.eachRule(function(rule) {
+    css.walkRules(function(rule) {
 
       if (!containsPseudo(rule.selector)) {
         return;
