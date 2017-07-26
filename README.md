@@ -1,14 +1,12 @@
 # PostCSS Input Style
-[![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url]
+[![NPM version][npm-badge]][npm-url] [![Build Status][travis-badge]][travis-url] [![Dependency Status][daviddm-badge]][daviddm-url]
 
-[PostCSS][PostCSS] plugin that adds new pseudo-elements to inputs for easy cross-browser styling of their inner elements. Currently the only input supported is Range, more will be added as more vendor-specific pseudo selectors are made available.
+[PostCSS][PostCSS] plugin that adds new pseudo elements to inputs for easy cross-browser styling of their inner elements. Currently the only input supported is Range, more will be added as more vendor-specific pseudo selectors are made available.
 
-Note that the output selectors generated (below) are not grouped because if a browser finds a single selector it doesn't understand in a group, the whole group is ignored (see [Selectors Level 3][selectors]).
+_Part of [Rucksack - CSS Superpowers](http://simplaio.github.io/rucksack)_
 
-Part of [Rucksack - CSS Superpowers](http://simplaio.github.io/rucksack).
+**Input**
 
-#### Range elements
-Input
 ```css
 input[type="range"]::track {
   background: #9d9d9d;
@@ -21,7 +19,9 @@ input[type="range"]::thumb {
   height: 8px;
 }
 ```
-Output
+
+**Output**
+
 ```css
 input[type="range"]::-webkit-slider-runnable-track {
   -webkit-appearance: none;
@@ -69,10 +69,15 @@ input[type=range]::-moz-focus-outer {
 }
 ```
 
-`-[vendor]-appearance: none;` is added so your custom styles apply. On webkit (Chrome, etc.) this means you must style *both* `::track` and `::thumb`, since the appearance must be set on the root element as well. The additional `::-moz-focus-outer` rule removes the nasty dotted focus outline on firefox.
----
+Notes on output:
 
-### Usage
+- Selectors are not grouped because if a browser finds a single selector it doesn't understand in a group, the whole group is ignored (see [Selectors Level 3][selectors])
+
+- `-[vendor]-appearance: none;` is added so your custom styles apply. On Chrome and Safari this means you must style *both* `::track` and `::thumb`, since the appearance must be set on the root element as well
+
+- The additional `::-moz-focus-outer` rule removes the inconsistent dotted focus outline on firefox.
+
+## Usage
 
 ```js
 postcss([ require('postcss-input-style') ])
@@ -80,17 +85,15 @@ postcss([ require('postcss-input-style') ])
 
 See [PostCSS][PostCSS] docs for examples for your environment.
 
---
-
-### License
+***
 
 MIT © [Sean King](https://twitter.com/seaneking)
 
-[npm-image]: https://badge.fury.io/js/postcss-input-style.svg
+[npm-badge]: https://badge.fury.io/js/postcss-input-style.svg
 [npm-url]: https://npmjs.org/package/postcss-input-style
-[travis-image]: https://travis-ci.org/seaneking/postcss-input-style.svg?branch=master
+[travis-badge]: https://travis-ci.org/seaneking/postcss-input-style.svg?branch=master
 [travis-url]: https://travis-ci.org/seaneking/postcss-input-style
-[daviddm-image]: https://david-dm.org/seaneking/postcss-input-style.svg?theme=shields.io
+[daviddm-badge]: https://david-dm.org/seaneking/postcss-input-style.svg?theme=shields.io
 [daviddm-url]: https://david-dm.org/seaneking/postcss-input-style
 [PostCSS]: https://github.com/postcss/postcss
 [selectors]: http://www.w3.org/TR/selectors/#Conformance
