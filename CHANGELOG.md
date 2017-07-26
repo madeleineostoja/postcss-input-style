@@ -1,8 +1,7 @@
 # Change Log
 
-## [Unreleased](https://github.com/seaneking/postcss-input-style/tree/HEAD)
-
-[Full Changelog](https://github.com/seaneking/postcss-input-style/compare/v0.3.0...HEAD)
+## [v1.0.0](https://github.com/seaneking/postcss-input-style/tree/v1.0.0) (2017-07-26)
+[Full Changelog](https://github.com/seaneking/postcss-input-style/compare/v0.3.0...v1.0.0)
 
 **Merged pull requests:**
 
