@@ -1,13 +1,11 @@
-/*eslint no-unused-expressions: 0, block-scoped-var: 0, no-undef: 0*/
+const postcss = require('postcss');
+const expect = require('chai').expect;
+const fs = require('fs');
+const path = require('path');
+const plugin = require('../');
 
-var postcss = require('postcss'),
-    expect = require('chai').expect,
-    fs = require('fs'),
-    path = require('path'),
-    plugin = require('../');
-
-var test = function (fixture, opts, done) {
-  var input = fixture + '.css',
+function test(fixture, opts, done) {
+  let input = fixture + '.css',
       expected = fixture + '.expected.css';
 
   input = fs.readFileSync(path.join(__dirname, 'fixtures', input), 'utf8');
@@ -15,32 +13,21 @@ var test = function (fixture, opts, done) {
 
   postcss([ plugin(opts) ])
     .process(input)
-    .then(function (result) {
+    .then(result => {
       expect(result.css).to.eql(expected);
       expect(result.warnings()).to.be.empty;
-    done();
-  }).catch(function (error) {
-    done(error);
-  });
+      done();
+    }).catch(error => done(error));
+}
 
-};
+describe('postcss-input-style', () => {
 
-describe('postcss-input-style', function () {
+  it('creates range track selectors', done => test('range-track', {}, done));
 
-  it('creates range track selectors', function (done) {
-   test('range-track', {}, done);
-  });
+  it('creates range thumb selectors', done => test('range-thumb', {}, done));
 
-  it('creates range thumb selectors', function (done) {
-   test('range-thumb', {}, done);
-  });
+  it('takes root-level pseudo selectors', done => test('root', {}, done));
 
-  it('takes root-level pseudo selectors', function (done) {
-   test('root', {}, done);
-  });
-
-  it('handles grouped mixed selectors', function (done) {
-   test('mixed', {}, done);
-  });
+  it('handles grouped mixed selectors', done => test('mixed', {}, done));
 
 });
