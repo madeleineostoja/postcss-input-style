@@ -1,5 +1,5 @@
 # PostCSS Input Style
-[![NPM version][npm-badge]][npm-url] [![Build Status][travis-badge]][travis-url] [![Dependency Status][daviddm-badge]][daviddm-url]
+[![NPM version][npm-badge]][npm-url] [![Downloads][downloads-badge]][npm-url] [![Build Status][travis-badge]][travis-url] 
 
 [PostCSS][PostCSS] plugin that adds new pseudo elements to inputs for easy cross-browser styling of their inner elements. Currently the only input supported is Range, more will be added as more vendor-specific pseudo selectors are made available.
 
@@ -91,9 +91,8 @@ MIT © [Sean King](https://twitter.com/seaneking)
 
 [npm-badge]: https://badge.fury.io/js/postcss-input-style.svg
 [npm-url]: https://npmjs.org/package/postcss-input-style
+[downloads-badge]: https://img.shields.io/npm/dm/postcss-input-style.svg
 [travis-badge]: https://travis-ci.org/seaneking/postcss-input-style.svg?branch=master
 [travis-url]: https://travis-ci.org/seaneking/postcss-input-style
-[daviddm-badge]: https://david-dm.org/seaneking/postcss-input-style.svg?theme=shields.io
-[daviddm-url]: https://david-dm.org/seaneking/postcss-input-style
 [PostCSS]: https://github.com/postcss/postcss
 [selectors]: http://www.w3.org/TR/selectors/#Conformance
